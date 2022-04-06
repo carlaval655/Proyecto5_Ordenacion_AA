@@ -1,28 +1,54 @@
 var numeros=[];
+var cantidadNumeros=0;
 function comprueba(flag){
     var valor = document.getElementById('cantidadNumeros');
     if(valor.value < 0 || valor.value % 1 != 0){
     document.getElementById('mensajeError').innerHTML="Introduzca un numero entero positivo.";
   }
   else{
+      cantidadNumeros=parseInt(valor.value, 10);
+      quitarModal('#ingresoCantidadNumeros');
       if(flag==1){
-        $("#ingresoCantidadNumeros").hide();
           ingresoManual();
       }
       else{
-        $('#ingresoCantidadNumeros').hide();
         ingresoAleatorio();
       }
   }
 }
 
 function ingresoManual(){
-    
     console.log("Ingreso manual");
+    var html=`<h4>Introduzca los numeros a ordenar: </h4><br>`;
+    for(i=0; i<cantidadNumeros; i++){
+        if(i%2!=0){//Cada dos valores se hara un salto de linea
+            html+=`<label style="margin-right:1vw;">Numero ${i+1}: </label><input style = "height:1.5vw; width:4vw;" id="valor-${i+1}"><br>`;
+        }
+        else{
+            html+=`<label style="margin-right:1vw;">Numero ${i+1}: </label><input style = "height:1.5vw; width:4vw; margin-right:5vw;" id="valor-${i+1}">`;
+        }
+    }
+    console.log(html);
+    $('#inputNumeros').html(html);
+    $('#ingresoValores').modal({ show: true });
 }
 
+function agregarNumeros(){
+    for (i=0; i<cantidadNumeros; i++){
+        numero = document.getElementById("valor-"+(i+1)).value;
+        numeros.push(numero);
+    }
+    quitarModal("#ingresoValores");
+    console.log(numeros);
+}
 function ingresoAleatorio(){
     console.log("Ingreso aleatorio");
+}
+
+function quitarModal(modal){
+    $(modal).hide();
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
 }
 //Botón contactanos
 var integrantes = ["Micaela Gordillo", "Alejandra Pacheco", "Naomi Tacachira", "Carla Valencia"];
