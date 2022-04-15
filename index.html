@@ -68,7 +68,10 @@
       <div class="col-md-2">
         <div id="toolbox" class="justify-content-center">
           <center>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ingresoCantidadNumeros" onclick="">Ingresar valores</button>
+
             <ul style="list-style: none; margin-left: -20%; margin-top:5vw;">
+              <!--Modal y boton para que el usuario defina la cantidad de datos y elija si quiere agregarlos manualmente o de manera aleatoria-->
               <center><h4 style="margin-bottom:4vw;"><strong>Tipo de ordenamiento</strong></h4></center>
               <button type="button" class="btn btn-primary btn-lg" onclick="insertion()">Insertion</button><br><br>
               <button type="button" class="btn btn-primary btn-lg" onclick="selection()">Selection</button><br><br>
@@ -82,17 +85,16 @@
       <!-- Div para el diagrama -->
       <div class="col-md-9">
         <div id="diagram" style="height: 90vh; position: relative; background-color: white;">
-          <div id="insertion">
-            <h4>Insertion</h4>
-          </div>
-          <div id="selection">
-            <h4>Selection</h4>
-          </div>
-          <div id="merge">
-            <h4>Merge</h4>
-          </div>
-          <div id="shell">
-            <h4>Shell</h4>
+          <br>
+          <div id="datos" style="margin-left:2vw;">
+          </div><br>
+          <div id="insertion" style="margin-left:2vw;">
+          </div><br>
+          <div id="selection" style="margin-left:2vw;">
+          </div><br>
+          <div id="merge" style="margin-left:2vw;">
+          </div><br>
+          <div id="shell" style="margin-left:2vw;">
           </div>
         </div>
       </div>
@@ -124,8 +126,7 @@
     </div>
   </div>
 
-  <!--Modal y boton para que el usuario defina la cantidad de datos y elija si quiere agregarlos manualmente o de manera aleatoria-->
-  <button style="margin-left: 40vw;"type="button" class="btn btn-primary" data-toggle="modal" data-target="#ingresoCantidadNumeros" onclick="">Ingresar valores</button>
+  
 
   <div class="modal fade" id="ingresoCantidadNumeros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
